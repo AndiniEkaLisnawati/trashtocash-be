@@ -17,8 +17,14 @@ const register = (req, res) => {
         userModel.createUser(username, hashedPassword, email, phone, role, (err, result) => {
             if (err) {
                 console.error("Database Insert Error:", err)
+
+                if (err.code === 'ER_DUP_ENTRY') {
+                    return response(400, null, "Username atau email sudah digunakan", res)
+                }
+
                 return response(500, null, "Error registering user", res)
             }
+
             response(200, null, "User registered successfully", res)
         })
     })

@@ -1,6 +1,9 @@
+require('dotenv').config()
+console.log('JWT SECRET:', process.env.JWT_SECRET)
 const express = require('express')
 const db = require('./config/connection')
-require('dotenv').config()
+const cors = require('cors')
+
 
 const educontentRoutes = require('./routes/eduRoutes')
 const challengesRoutes = require('./routes/challengesRoutes')
@@ -15,6 +18,12 @@ const mlPredictRoute = require('./routes/mlPredictRoutes')
 
 const app = express()
 const port = 3000
+
+app.use(cors({
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}))
 
 app.use(express.json())
 app.use('/api', educontentRoutes)

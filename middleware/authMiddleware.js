@@ -28,3 +28,4 @@ const authMiddleware = (allowedRoles = []) => {
 }
 
 module.exports = authMiddleware
+

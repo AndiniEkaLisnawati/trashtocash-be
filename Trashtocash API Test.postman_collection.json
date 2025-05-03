@@ -56,7 +56,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"silmia@example.com\",\r\n    \"password\":\"simia1234\"\r\n}",
+					"raw": "{\r\n    \"email\": \"silmia@example.com\",\r\n    \"password\":\"simia1234\"\r\n \r\n    \"role\": \"user\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
